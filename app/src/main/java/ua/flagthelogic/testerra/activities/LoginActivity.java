@@ -1,4 +1,4 @@
-package ua.flagthelogic.testerra;
+package ua.flagthelogic.testerra.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -31,6 +31,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ua.flagthelogic.testerra.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

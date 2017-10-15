@@ -5,6 +5,12 @@
 /build
 /*/build/
 *.iml
+# User-specific configurations
+#.idea/tasks.xml
+#.idea/.name
+.idea/encodings.xml
+#.idea/scopes/scope_settings.xml
+#.idea/vcs.xml
 .idea/misc.xml
 .idea/modules.xml
 .idea/compiler.xml
@@ -20,12 +26,6 @@ com_crashlytics_export_strings.xml
 # Gradle generated files
 # Signing files
 .signing/
-# User-specific configurations
-#.idea/tasks.xml
-#.idea/.name
-.idea/encodings.xml
-#.idea/scopes/scope_settings.xml
-#.idea/vcs.xml
 # OS-specific files
 #.DS_Store?
 #._*
