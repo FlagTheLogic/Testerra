@@ -1,4 +1,4 @@
-package ua.flagthelogic.testerra;
+package com.flagthelogic.testerra;
 
 import org.junit.Test;
 

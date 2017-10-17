@@ -1,10 +1,10 @@
-package ua.flagthelogic.testerra;
+package com.flagthelogic.testerra;
 
 import java.util.ArrayList;
 
-import ua.flagthelogic.testerra.entities.Option;
-import ua.flagthelogic.testerra.entities.Question;
-import ua.flagthelogic.testerra.entities.Test;
+import com.flagthelogic.testerra.entities.Option;
+import com.flagthelogic.testerra.entities.Question;
+import com.flagthelogic.testerra.entities.Test;
 
 
 public class Application {

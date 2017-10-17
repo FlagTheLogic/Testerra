@@ -1,4 +1,4 @@
-package ua.flagthelogic.testerra.entities;
+package com.flagthelogic.testerra.entities;
 
 public class Option {
     int id = 0;

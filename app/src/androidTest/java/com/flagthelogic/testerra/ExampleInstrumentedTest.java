@@ -1,4 +1,4 @@
-package ua.flagthelogic.testerra;
+package com.flagthelogic.testerra;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("ua.flagthelogic.testerra", appContext.getPackageName());
+        assertEquals("com.flagthelogic.testerra", appContext.getPackageName());
     }
 }
