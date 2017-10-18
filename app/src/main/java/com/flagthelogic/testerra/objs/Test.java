@@ -9,7 +9,7 @@ public class Test {
     private String author = "default_test_author";
     private String description = "default_test_description";
     private ArrayList<Question> questions = new ArrayList<>();
-
+    private int testComplitedTimes = 0;
     public Test() {
     }
 

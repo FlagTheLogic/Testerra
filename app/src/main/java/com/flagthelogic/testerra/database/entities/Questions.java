@@ -17,29 +17,29 @@ import android.arch.persistence.room.PrimaryKey;
 public class Questions {
     @PrimaryKey
     @ColumnInfo(name = "test_id")
-    private int tid;
+    private int tId;
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "question_id")
-    private int qid;
+    private int qId;
     @ColumnInfo(name = "question")
     private String question;
     @ColumnInfo(name = "options")
     private String options;
 
-    public int getTid() {
-        return tid;
+    public int gettId() {
+        return tId;
     }
 
-    public void setTid(int tid) {
-        this.tid = tid;
+    public void settId(int tId) {
+        this.tId = tId;
     }
 
-    public int getQid() {
-        return qid;
+    public int getqId() {
+        return qId;
     }
 
-    public void setQid(int qid) {
-        this.qid = qid;
+    public void setqId(int qId) {
+        this.qId = qId;
     }
 
     public String getQuestion() {
