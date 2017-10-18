@@ -2,10 +2,9 @@ package com.flagthelogic.testerra;
 
 import java.util.ArrayList;
 
-import com.flagthelogic.testerra.database.TesterraDBHelper;
-import com.flagthelogic.testerra.entities.Option;
-import com.flagthelogic.testerra.entities.Question;
-import com.flagthelogic.testerra.entities.Test;
+import com.flagthelogic.testerra.objs.Option;
+import com.flagthelogic.testerra.objs.Question;
+import com.flagthelogic.testerra.objs.Test;
 
 
 public class Application {

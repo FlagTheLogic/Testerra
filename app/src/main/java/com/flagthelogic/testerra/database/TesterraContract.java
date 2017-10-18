@@ -20,7 +20,6 @@ class TesterraContract {
     private static final String CREATE_TABLE = "CREATE TABLE ";
     private static final String DROP_TABLE = "DROP TABLE IF EXISTS ";
 
-
     static final  String SQL_CREATE_TESTS =
             CREATE_TABLE + TestsEntry.TABLE_NAME + BRACKETS_OPEN +
                     TestsEntry._ID +                        INT_TYPE + PRIMARY_KEY + COMMA_SEP +

@@ -1,4 +1,4 @@
-package com.flagthelogic.testerra.entities;
+package com.flagthelogic.testerra.objs;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.flagthelogic.testerra.entities;
+package com.flagthelogic.testerra.objs;
 
 import java.util.ArrayList;
 
@@ -51,7 +51,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return "\n\t\tQuestion{ \n" +
+        return "\n\t\tQuestions{ \n" +
                 "\t\t\tid=" + id + ",\n" +
                 "\t\t\tquestion='" + question + "\',\n" +
                 "\t\t\toptions=" + options + "},\n";
