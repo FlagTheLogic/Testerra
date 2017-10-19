@@ -5,6 +5,7 @@ import android.arch.persistence.room.Database;
 import android.arch.persistence.room.DatabaseConfiguration;
 import android.arch.persistence.room.InvalidationTracker;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverters;
 
 import com.flagthelogic.testerra.database.entities.Questions;
 import com.flagthelogic.testerra.database.entities.Results;
@@ -16,6 +17,7 @@ import com.flagthelogic.testerra.database.entities.Tests;
  * date: 18.10.17.
  */
 @Database(entities = {Tests.class, Questions.class, Results.class}, version = 1)
+@TypeConverters(Converters.class)
 public class AppDatabase extends RoomDatabase {
 
     @Override

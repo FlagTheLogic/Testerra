@@ -10,13 +10,12 @@ import android.arch.persistence.room.PrimaryKey;
  * device: dell
  * date: 18.10.17.
  */
-@Entity(tableName = "results",
-        indices = {@Index(value = "result_id", unique = true)})
+@Entity(tableName = "results", primaryKeys = {"test_id", "result_id"})
 public class Results {
     @PrimaryKey
     @ColumnInfo(name = "test_id")
     private int tId;
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "result_id")
     private int rId;
     @ColumnInfo(name = "value")

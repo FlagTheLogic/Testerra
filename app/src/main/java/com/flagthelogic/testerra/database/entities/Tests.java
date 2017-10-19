@@ -1,16 +1,12 @@
 package com.flagthelogic.testerra.database.entities;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "tests",
-        indices = {
-                @Index(
-                        value = "id", unique = true
-                )
-        })
+@Entity(tableName = "tests",indices = {@Index(value = "id", unique = true)})
 public class Tests {
     @PrimaryKey
     private int id = 0;
@@ -24,8 +20,9 @@ public class Tests {
     private int testCompleted;
     @ColumnInfo(name = "category")
     private int category;
+    @Embedded
     @ColumnInfo(name = "parameters")
-    private String params;
+    private Params params;
     @ColumnInfo(name = "logic_type")
     private int logicType;
     @ColumnInfo(name = "instruction")
@@ -79,11 +76,11 @@ public class Tests {
         this.category = category;
     }
 
-    public String getParams() {
+    public Params getParams() {
         return params;
     }
 
-    public void setParams(String params) {
+    public void setParams(Params params) {
         this.params = params;
     }
 
@@ -101,5 +98,10 @@ public class Tests {
 
     public void setInstruction(String instruction) {
         this.instruction = instruction;
+    }
+
+    class Params {
+        private String param1;
+        private int param2;
     }
 }
