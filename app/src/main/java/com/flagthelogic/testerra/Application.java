@@ -43,7 +43,7 @@ public class Application {
         Application.tests = tests;
     }
 
-    public static void main(String[] args) {
-        System.out.println(getTests());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(getTests());
+//    }
 }

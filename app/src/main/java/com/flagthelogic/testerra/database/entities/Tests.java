@@ -100,6 +100,9 @@ public class Tests {
     }
 
     public static class Params {
+        private String param1;
+        private int param2;
+
         public Params(String param1, int param2) {
             this.param1 = param1;
             this.param2 = param2;
@@ -120,9 +123,27 @@ public class Tests {
         public void setParam2(int param2) {
             this.param2 = param2;
         }
-
-        private String param1;
-        private int param2;
+        @Override
+        public String toString() {
+            return "Params{" +
+                    "param1='" + param1 + '\'' +
+                    ", param2=" + param2 +
+                    '}';
+        }
     }
 
+    @Override
+    public String toString() {
+        return "Tests{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                ", testCompleted=" + testCompleted +
+                ", category=" + category +
+                ", parameters=" + parameters +
+                ", logicType=" + logicType +
+                ", instruction='" + instruction + '\'' +
+                '}';
+    }
 }

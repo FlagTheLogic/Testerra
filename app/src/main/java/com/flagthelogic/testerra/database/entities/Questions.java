@@ -1,6 +1,7 @@
 package com.flagthelogic.testerra.database.entities;
 
 import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
@@ -12,12 +13,12 @@ import java.util.List;
 @Entity(tableName = "questions", primaryKeys = {"test_id", "question_id"})
 public class Questions {
     @ColumnInfo(name = "test_id")
-    private int tId;
+    public int tId;
     @ColumnInfo(name = "question_id")
-    private int qId;
+    public int qId;
     @ColumnInfo(name = "question")
     private String question;
-    @ColumnInfo(name = "options")
+
     private POJOOptions options;
 
     public int gettId() {
@@ -54,63 +55,36 @@ public class Questions {
     }
 
     public static class POJOOptions {
-        public POJOOptions(List<Option> options) {
-            this.options = options;
+        List<Integer> ids;
+        List<String> titles;
+
+        public POJOOptions(List<Integer> ids, List<String> titles) {
+            this.ids = ids;
+            this.titles = titles;
         }
 
-        @SerializedName("options")
-        @Expose
-        private List<Option> options = null;
-
-        public List<Option> getOptions() {
-            return options;
+        public List<Integer> getIds() {
+            return ids;
         }
 
-        public void setOptions(List<Option> options) {
-            this.options = options;
+        public void setIds(List<Integer> ids) {
+            this.ids = ids;
+        }
+
+        public List<String> getTitles() {
+            return titles;
+        }
+
+        public void setTitles(List<String> titles) {
+            this.titles = titles;
         }
 
         @Override
         public String toString() {
-            String optionsStr = "";
-            for (int i = 0; i < options.size(); i++) {
-                if (options.size() != i) {
-                    optionsStr += "{" + options.get(i).toString() + "},";
-                } else {
-                    optionsStr += "{" + options.get(i).toString() + "}";
-                }
-            }
-            return "{\"options\":[" + optionsStr +"]}";
-        }
-        public static class Option {
-            @SerializedName("id")
-            @Expose
-            private int id;
-            @SerializedName("title")
-            @Expose
-            private String title;
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            @Override
-            public String toString() {
-                return "{\"id\":"+id+","+
-                        "\"title\":\""+title+"\"}";
-            }
+            return "POJOOptions{" +
+                    "ids=" + ids.get(1) +
+                    ", titles=" + titles.get(1) +
+                    '}';
         }
     }
 

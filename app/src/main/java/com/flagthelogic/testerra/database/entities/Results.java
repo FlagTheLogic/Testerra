@@ -13,9 +13,9 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "results", primaryKeys = {"test_id", "result_id"})
 public class Results {
     @ColumnInfo(name = "test_id")
-    private int tId;
+    public int tId;
     @ColumnInfo(name = "result_id")
-    private int rId;
+    public int rId;
     @ColumnInfo(name = "value")
     private String value;
 

@@ -1,13 +1,18 @@
 package com.flagthelogic.testerra.database;
 
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
 
 import com.flagthelogic.testerra.database.entities.Questions;
 import com.flagthelogic.testerra.database.entities.Tests;
+import com.flagthelogic.testerra.objs.Question;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Volodymyr Nahornyi on
@@ -17,24 +22,32 @@ import java.util.Date;
 
 public class Converters {
     @TypeConverter
-    public static Questions.POJOOptions stringToOptions(String jsonOptions) {
-        return new Gson().fromJson(jsonOptions, Questions.POJOOptions.class);
+    public static Questions.POJOOptions stringToOptions(String optionsString) {
+        String[] options = optionsString.split("|");
+        String[] idsInStrings = options[0].split(".");
+        String[] titles = options[1].split(".");
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (int i = 0; i < idsInStrings.length; i++) {
+            ids.add(Integer.parseInt(idsInStrings[i]));
+        }
+        return new Questions.POJOOptions(ids, Arrays.asList(titles));
     }
 
     @TypeConverter
     public static String optionsToString(Questions.POJOOptions options) {
-        return options.toString();
+        String ids = "";
+        String titles = "";
+        for (int i = 0; i < options.getIds().size(); i++) {
+            if (i != options.getIds().size()) {
+                ids += options.getIds().get(i) + ".";
+                titles += options.getTitles().get(i) + ".";
+            } else {
+                ids += options.getIds().get(i);
+                titles += options.getTitles().get(i);
+            }
+        }
+        return ids + "|" + titles;
     }
-//
-//    @TypeConverter
-//    public static Tests.POJOParams stringToParams(String jsonParams) {
-//        return new Gson().fromJson(jsonParams, Tests.POJOParams.class);
-//    }
-//
-//    @TypeConverter
-//    public static String testParamsToString(Tests.POJOParams params) {
-//        return params.toString();
-//    }
 
     @TypeConverter
     public static Date fromTimestamp(Long timestamp) {

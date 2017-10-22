@@ -18,7 +18,7 @@ import com.flagthelogic.testerra.database.entities.Tests;
  * device: dell
  * date: 18.10.17.
  */
-@Database(entities = {Tests.class, Questions.class, Results.class}, version = 1)
+@Database(entities = {Tests.class, Questions.class, Results.class}, version = 2, exportSchema = false)
 @TypeConverters(Converters.class)
 public abstract class AppDatabase extends RoomDatabase {
 
