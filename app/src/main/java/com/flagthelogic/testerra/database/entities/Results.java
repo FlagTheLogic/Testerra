@@ -12,10 +12,8 @@ import android.arch.persistence.room.PrimaryKey;
  */
 @Entity(tableName = "results", primaryKeys = {"test_id", "result_id"})
 public class Results {
-    @PrimaryKey
     @ColumnInfo(name = "test_id")
     private int tId;
-    @PrimaryKey
     @ColumnInfo(name = "result_id")
     private int rId;
     @ColumnInfo(name = "value")

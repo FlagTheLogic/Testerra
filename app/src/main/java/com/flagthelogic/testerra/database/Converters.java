@@ -25,16 +25,16 @@ public class Converters {
     public static String optionsToString(Questions.POJOOptions options) {
         return options.toString();
     }
-
-    @TypeConverter
-    public static Tests.POJOParams stringToParams(String jsonParams) {
-        return new Gson().fromJson(jsonParams, Tests.POJOParams.class);
-    }
-
-    @TypeConverter
-    public static String testParamsToString(Tests.POJOParams params) {
-        return params.toString();
-    }
+//
+//    @TypeConverter
+//    public static Tests.POJOParams stringToParams(String jsonParams) {
+//        return new Gson().fromJson(jsonParams, Tests.POJOParams.class);
+//    }
+//
+//    @TypeConverter
+//    public static String testParamsToString(Tests.POJOParams params) {
+//        return params.toString();
+//    }
 
     @TypeConverter
     public static Date fromTimestamp(Long timestamp) {

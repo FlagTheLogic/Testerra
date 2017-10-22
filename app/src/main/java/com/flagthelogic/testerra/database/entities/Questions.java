@@ -11,10 +11,8 @@ import java.util.List;
 
 @Entity(tableName = "questions", primaryKeys = {"test_id", "question_id"})
 public class Questions {
-    @PrimaryKey
     @ColumnInfo(name = "test_id")
     private int tId;
-    @PrimaryKey
     @ColumnInfo(name = "question_id")
     private int qId;
     @ColumnInfo(name = "question")
@@ -56,6 +54,10 @@ public class Questions {
     }
 
     public static class POJOOptions {
+        public POJOOptions(List<Option> options) {
+            this.options = options;
+        }
+
         @SerializedName("options")
         @Expose
         private List<Option> options = null;
@@ -80,7 +82,7 @@ public class Questions {
             }
             return "{\"options\":[" + optionsStr +"]}";
         }
-        static class Option {
+        public static class Option {
             @SerializedName("id")
             @Expose
             private int id;
@@ -110,5 +112,15 @@ public class Questions {
                         "\"title\":\""+title+"\"}";
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Questions{" +
+                "tId=" + tId +
+                ", qId=" + qId +
+                ", question='" + question + '\'' +
+                ", options=" + options +
+                '}';
     }
 }

@@ -21,8 +21,7 @@ public class Tests {
     @ColumnInfo(name = "category")
     private int category;
     @Embedded
-    @ColumnInfo(name = "parameters")
-    private Params params;
+    private Params parameters;
     @ColumnInfo(name = "logic_type")
     private int logicType;
     @ColumnInfo(name = "instruction")
@@ -76,12 +75,12 @@ public class Tests {
         this.category = category;
     }
 
-    public Params getParams() {
-        return params;
+    public Params getParameters() {
+        return parameters;
     }
 
-    public void setParams(Params params) {
-        this.params = params;
+    public void setParameters(Params params) {
+        this.parameters = params;
     }
 
     public int getLogicType() {
@@ -100,8 +99,30 @@ public class Tests {
         this.instruction = instruction;
     }
 
-    class Params {
+    public static class Params {
+        public Params(String param1, int param2) {
+            this.param1 = param1;
+            this.param2 = param2;
+        }
+
+        public String getParam1() {
+            return param1;
+        }
+
+        public void setParam1(String param1) {
+            this.param1 = param1;
+        }
+
+        public int getParam2() {
+            return param2;
+        }
+
+        public void setParam2(int param2) {
+            this.param2 = param2;
+        }
+
         private String param1;
         private int param2;
     }
+
 }
