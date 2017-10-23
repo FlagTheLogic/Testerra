@@ -14,7 +14,6 @@ import android.os.Bundle;
  import com.flagthelogic.testerra.database.entities.Tests;
 
  import java.util.ArrayList;
- import java.util.List;
 
 public class TestActivity extends AppCompatActivity {
     Button loadBTN;
@@ -24,14 +23,21 @@ public class TestActivity extends AppCompatActivity {
     TextView loadQuestionTEXT;
     Button saveBTN;
     Button loadQuestion;
+    private static final String TAG = "MyActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        final AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "db.name").allowMainThreadQueries().build();
+        final AppDatabase db =
+                Room
+                        .databaseBuilder(
+                                getApplicationContext(),
+                                AppDatabase.class, "db.name")
+                        .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
+                        .build();
 
         loadBTN = findViewById(R.id.button);
         loadET = findViewById(R.id.editText);
@@ -67,15 +73,10 @@ public class TestActivity extends AppCompatActivity {
                 question.settId(new_test_id);
                 question.setQuestion("question 1");
 
-                ArrayList<Integer> ids = new ArrayList<>();
-                ids.add(1);
-                ids.add(2);
-                ids.add(3);
-                ArrayList<String> titles = new ArrayList<>();
-                titles.add("t1");
-                titles.add("t2");
-                titles.add("t3");
-                Questions.POJOOptions options1 = new Questions.POJOOptions(ids, titles);
+                ArrayList<Questions.Options> options1 = new ArrayList<>();
+                options1.add(new Questions.Options(1,"t1"));
+                options1.add(new Questions.Options(2,"t2"));
+                options1.add(new Questions.Options(3,"t3"));
                 question.setOptions(options1);
 
                 db.questionsDao().insertQuestions(question);
@@ -90,7 +91,8 @@ public class TestActivity extends AppCompatActivity {
 //                for (Questions q: arrayList) {
 //                    s += q.toString();
 //                }
-                String s = db.questionsDao().getQuestionsForTest(Integer.parseInt(loadET.getText().toString())).get(1).toString();
+                String s = db.questionsDao()
+                        .getQuestionsForTest(Integer.parseInt(loadET.getText().toString())).get(0).toString();
                 loadQuestionTEXT.setText(s);
             }
         });

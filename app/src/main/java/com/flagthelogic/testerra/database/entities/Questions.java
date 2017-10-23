@@ -5,6 +5,7 @@ import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverter;
+import android.arch.persistence.room.TypeConverters;
 
 import com.flagthelogic.testerra.database.converters.OptionsConverter;
 import com.google.gson.annotations.Expose;
@@ -13,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 //https://stackoverflow.com/questions/44815784/room-persistent-database-how-to-insert-list-of-items-into-db-when-it-has-no-pr
 @Entity(tableName = "questions", primaryKeys = {"test_id", "question_id"})
-@TypeConverter(OptionsConverter.class)
+@TypeConverters({OptionsConverter.class})
 public class Questions {
     @ColumnInfo(name = "test_id")
     public int tId;
@@ -21,7 +22,7 @@ public class Questions {
     public int qId;
     @ColumnInfo(name = "question")
     private String question;
-
+    @ColumnInfo(name = "options")
     private List<Options> options = null;
 
     public int gettId() {
@@ -61,6 +62,11 @@ public class Questions {
         String title;
 
         public Options() {
+        }
+
+        public Options(int id, String title) {
+            this.id = id;
+            this.title = title;
         }
 
         public int getId() {

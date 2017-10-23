@@ -7,6 +7,7 @@ import android.arch.persistence.room.InvalidationTracker;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 
+import com.flagthelogic.testerra.database.converters.OptionsConverter;
 import com.flagthelogic.testerra.database.dao.QuestionsDao;
 import com.flagthelogic.testerra.database.dao.TestsDao;
 import com.flagthelogic.testerra.database.entities.Questions;
@@ -18,8 +19,8 @@ import com.flagthelogic.testerra.database.entities.Tests;
  * device: dell
  * date: 18.10.17.
  */
-@Database(entities = {Tests.class, Questions.class, Results.class}, version = 2, exportSchema = false)
-@TypeConverters(Converters.class)
+@Database(entities = {Tests.class, Questions.class, Results.class}, version = 3, exportSchema = false)
+@TypeConverters(OptionsConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract TestsDao testsDao();
