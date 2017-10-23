@@ -4,13 +4,16 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverter;
 
+import com.flagthelogic.testerra.database.converters.OptionsConverter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
+//https://stackoverflow.com/questions/44815784/room-persistent-database-how-to-insert-list-of-items-into-db-when-it-has-no-pr
 @Entity(tableName = "questions", primaryKeys = {"test_id", "question_id"})
+@TypeConverter(OptionsConverter.class)
 public class Questions {
     @ColumnInfo(name = "test_id")
     public int tId;
@@ -19,7 +22,7 @@ public class Questions {
     @ColumnInfo(name = "question")
     private String question;
 
-    private POJOOptions options;
+    private List<Options> options = null;
 
     public int gettId() {
         return tId;
@@ -45,45 +48,42 @@ public class Questions {
         this.question = question;
     }
 
-
-    public POJOOptions getOptions() {
+    public List<Options> getOptions() {
         return options;
     }
 
-    public void setOptions(POJOOptions options) {
+    public void setOptions(List<Options> options) {
         this.options = options;
     }
 
-    public static class POJOOptions {
-        List<Integer> ids;
-        List<String> titles;
+    public static class Options {
+        int id;
+        String title;
 
-        public POJOOptions(List<Integer> ids, List<String> titles) {
-            this.ids = ids;
-            this.titles = titles;
+        public Options() {
         }
 
-        public List<Integer> getIds() {
-            return ids;
+        public int getId() {
+            return id;
         }
 
-        public void setIds(List<Integer> ids) {
-            this.ids = ids;
+        public void setId(int id) {
+            this.id = id;
         }
 
-        public List<String> getTitles() {
-            return titles;
+        public String getTitle() {
+            return title;
         }
 
-        public void setTitles(List<String> titles) {
-            this.titles = titles;
+        public void setTitle(String title) {
+            this.title = title;
         }
 
         @Override
         public String toString() {
-            return "POJOOptions{" +
-                    "ids=" + ids.get(1) +
-                    ", titles=" + titles.get(1) +
+            return "Options{" +
+                    "id=" + id +
+                    ", title='" + title + '\'' +
                     '}';
         }
     }
