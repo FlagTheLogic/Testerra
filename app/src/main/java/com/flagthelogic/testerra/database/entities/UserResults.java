@@ -4,6 +4,9 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
+
+import com.flagthelogic.testerra.database.converters.DateConverter;
 
 import java.util.Date;
 
@@ -13,6 +16,7 @@ import java.util.Date;
  * date: 18.10.2017
  */
 @Entity(tableName = "user_results", indices = {@Index(value = "id", unique = true)})
+@TypeConverters({DateConverter.class})
 public class UserResults {
     @PrimaryKey(autoGenerate = true)
     private int id;

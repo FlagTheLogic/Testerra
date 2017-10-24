@@ -1,4 +1,4 @@
-package com.flagthelogic.testerra.database;
+package com.flagthelogic.testerra.database.converters;
 
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.TypeConverter;
