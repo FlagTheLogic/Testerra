@@ -136,14 +136,14 @@ public class Tests {
     public String toString() {
         return "Tests{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", description='" + description + '\'' +
+                ", title=\'" + title + '\'' +
+                ", author=\'" + author + '\'' +
+                ", description=\'" + description + '\'' +
                 ", testCompleted=" + testCompleted +
                 ", category=" + category +
                 ", parameters=" + parameters +
                 ", logicType=" + logicType +
-                ", instruction='" + instruction + '\'' +
+                ", instruction=\'" + instruction + '\'' +
                 '}';
     }
 }

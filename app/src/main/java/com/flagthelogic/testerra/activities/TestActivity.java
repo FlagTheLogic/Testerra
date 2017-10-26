@@ -35,8 +35,9 @@ public class TestActivity extends AppCompatActivity {
                         .databaseBuilder(
                                 getApplicationContext(),
                                 AppDatabase.class, "db.name")
+                        .addMigrations(AppDatabase.MIGRATION_3_4, AppDatabase.MIGRATION_4_5)
                         .allowMainThreadQueries()
-                        .fallbackToDestructiveMigration()
+                        //.fallbackToDestructiveMigration()
                         .build();
 
         loadBTN = findViewById(R.id.button);
