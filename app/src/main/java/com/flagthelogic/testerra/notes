@@ -1,0 +1,38 @@
+Миграции на примере tests:
+    /*
+    *
+    * ДОБАВЛЕНИЕ ПОЛЯ
+    * так же нужно добавить поле, get и set методы в соответствующем классе в entities
+    *
+    */
+        database.execSQL("ALTER TABLE tests ADD COLUMN test_column INTEGER NOT NULL DEFAULT 0");
+
+
+    /*
+    * УДАЛЕНИЕ ПОЛЯ
+    *
+    * все поля INTEGER нужно устанавливать в NOT NULL, TEXT нет, остальные типы не проверялись
+    * поля c аннотацией @Embedded в зависимости от типа в котором хранится обьект
+    * так как они конвертируются в примитивный тип
+    *
+    * */
+        database.execSQL("CREATE TABLE tests_new " +
+                "(id INTEGER NOT NULL," +
+                "title TEXT," +
+                "author TEXT," +
+                "description TEXT," +
+                "test_completed INTEGER NOT NULL DEFAULT 0," +
+                "category INTEGER NOT NULL DEFAULT 0," +
+                "param1 TEXT," +
+                "param2 INTEGER," +
+                "logic_type INTEGER NOT NULL," +
+                "instruction TEXT," +
+                " PRIMARY KEY(id))");
+        database.execSQL("INSERT INTO tests_new (id,title,author,description," +
+                "test_completed,category,param1,param2,logic_type,instruction)" +
+                " SELECT id,title,author,description," +
+                "test_completed,category,param1,param2,logic_type,instruction" +
+                " FROM tests");
+        database.execSQL("ALTER TABLE tests RENAME TO tests_old");
+        database.execSQL("ALTER TABLE tests_new RENAME TO tests");
+        database.execSQL("DROP TABLE tests_old");

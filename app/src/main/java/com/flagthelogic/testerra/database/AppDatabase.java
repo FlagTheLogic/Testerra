@@ -69,20 +69,4 @@ public abstract class AppDatabase extends RoomDatabase {
     };
 
 
-    @Override
-    protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
-        return null;
-    }
-
-    /**
-     * Called when the RoomDatabase is created.
-     * <p>
-     * This is already implemented by the generated code.
-     *
-     * @return Creates a new InvalidationTracker.
-     */
-    @Override
-    protected InvalidationTracker createInvalidationTracker() {
-        return null;
-    }
 }

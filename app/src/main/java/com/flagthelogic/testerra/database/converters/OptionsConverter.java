@@ -15,18 +15,21 @@ import java.util.List;
  */
 
 public class OptionsConverter {
-    private static final String TAG = "MyActivity";
+    private static final String TAG = "Options CNV";
+    private final static String ID_TITLE_SEPARATOR = "\\*";
+    private final static String OPTIONS_SEPARATOR = "\\|";
+
     @TypeConverter
     public static List<Questions.Options> stringToOptions(String optionsString) {
         Log.e(TAG, optionsString);
         List<Questions.Options> options = new ArrayList<>();
-        String[] opts = optionsString.split("\\|");
+        String[] opts = optionsString.split(OPTIONS_SEPARATOR);
         for (String o:
              opts) {
             Log.e(TAG, o);
         }
         for (int i = 0; i < opts.length; i++) {
-            String[] pair = opts[i].split("\\.");
+            String[] pair = opts[i].split(ID_TITLE_SEPARATOR);
             Log.e(TAG, pair[0]+" "+pair[1] +" length: "+pair.length);
             options.add(new Questions.Options(Integer.parseInt(pair[0]), pair[1]));
         }
@@ -37,8 +40,8 @@ public class OptionsConverter {
     public static String optionsToString(List<Questions.Options> options) {
         String optionsString = "";
         for (int i = 0; i < options.size(); i++) {
-            String pair = options.get(i).getId() + "." + options.get(i).getTitle();
-            if (options.size()-1 != i) optionsString += pair + "|";
+            String pair = options.get(i).getId() + ID_TITLE_SEPARATOR + options.get(i).getTitle();
+            if (options.size()-1 != i) optionsString += pair + OPTIONS_SEPARATOR;
             else optionsString += pair;
         }
         return optionsString;
