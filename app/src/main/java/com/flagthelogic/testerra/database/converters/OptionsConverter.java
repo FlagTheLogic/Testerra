@@ -13,24 +13,27 @@ import java.util.List;
  * device: dell
  * date: 23.10.17.
  */
-
 public class OptionsConverter {
     private static final String TAG = "Options CNV";
-    private final static String ID_TITLE_SEPARATOR = "\\*";
-    private final static String OPTIONS_SEPARATOR = "\\|";
+    private final static String ID_TITLE_SEPARATOR = "-";
+    private final static String OPTIONS_SEPARATOR = "|";
 
     @TypeConverter
     public static List<Questions.Options> stringToOptions(String optionsString) {
-        Log.e(TAG, optionsString);
+        Log.e(TAG, optionsString); // 1-t1|2-t2|3-t3
         List<Questions.Options> options = new ArrayList<>();
-        String[] opts = optionsString.split(OPTIONS_SEPARATOR);
-        for (String o:
-             opts) {
-            Log.e(TAG, o);
+        String[] opts = optionsString.split("\\|");// ["1-t1","1-t1"]
+//        for (String o: opts) {
+//            Log.e(TAG, o);
+//        }
+        for (int i = 0; i < opts.length; i++) {
+            Log.e(TAG, opts[i]);
         }
         for (int i = 0; i < opts.length; i++) {
+
             String[] pair = opts[i].split(ID_TITLE_SEPARATOR);
-            Log.e(TAG, pair[0]+" "+pair[1] +" length: "+pair.length);
+
+//            Log.e(TAG, pair[0]+" "+pair[1] +" length: "+pair.length);
             options.add(new Questions.Options(Integer.parseInt(pair[0]), pair[1]));
         }
         return options;

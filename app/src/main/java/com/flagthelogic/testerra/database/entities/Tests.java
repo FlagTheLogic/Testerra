@@ -27,6 +27,21 @@ public class Tests {
     @ColumnInfo(name = "instruction")
     private String instruction;
 
+//    public Tests() {
+//    }
+
+    public Tests(int id, String title, String author, String description, int testCompleted, int category, Params parameters, int logicType, String instruction) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.description = description;
+        this.testCompleted = testCompleted;
+        this.category = category;
+        this.parameters = parameters;
+        this.logicType = logicType;
+        this.instruction = instruction;
+    }
+
     public int getId() {
         return id;
     }

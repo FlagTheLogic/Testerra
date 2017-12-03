@@ -6,4 +6,36 @@
     android:layout_height="match_parent"
     tools:context="com.flagthelogic.testerra.activities.TestMainActivity">
 
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <EditText
+            android:id="@+id/et_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter no."
+            android:inputType="number" />
+
+
+        <Button
+
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Radio btn" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
