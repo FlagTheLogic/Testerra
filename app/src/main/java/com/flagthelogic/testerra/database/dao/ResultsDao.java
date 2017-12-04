@@ -4,7 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.flagthelogic.testerra.database.entities.Results;
+import com.flagthelogic.testerra.database.entities.Result;
 
 /**
  * Created by Volodymyr Nahornyi on
@@ -14,14 +14,14 @@ import com.flagthelogic.testerra.database.entities.Results;
 @Dao
 public interface ResultsDao {
     @Query("SELECT * FROM results WHERE test_id = :testId")
-    Results getAllResultsForTest(int testId);
+    Result getAllResultsForTest(int testId);
 
     @Query("SELECT * FROM results WHERE test_id = :testId AND result_id = :resultId")
-    Results getResultForTest(int testId, int resultId);
+    Result getResultForTest(int testId, int resultId);
 
     @Insert
-    void insertResult(Results result);
+    void insertResult(Result result);
 
     @Insert
-    void insertResults(Results... result);
+    void insertResults(Result... result);
 }

@@ -4,7 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.flagthelogic.testerra.database.entities.Tests;
+import com.flagthelogic.testerra.database.entities.Test;
 
 import java.util.List;
 
@@ -16,17 +16,17 @@ import java.util.List;
 @Dao
 public interface TestsDao {
     @Query("SELECT * FROM tests")
-    List<Tests> getAll();
+    List<Test> getAll();
 
     @Query("SELECT * FROM tests WHERE id =:testId")
-    Tests getTestById(int testId);
+    Test getTestById(int testId);
 
     @Query("SELECT * FROM tests WHERE id IN (:testIds)")
-    List<Tests> getTestsByIds(int[] testIds);
+    List<Test> getTestsByIds(int[] testIds);
 
     @Query("SELECT * FROM tests WHERE category = :category")
-    List<Tests> getTestsByCategory(int category);
+    List<Test> getTestsByCategory(int category);
 
     @Insert
-    void insertNewTest(Tests test);
+    void insertNewTest(Test test);
 }

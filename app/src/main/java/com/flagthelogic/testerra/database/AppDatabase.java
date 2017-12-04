@@ -1,10 +1,7 @@
 package com.flagthelogic.testerra.database;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.db.SupportSQLiteOpenHelper;
 import android.arch.persistence.room.Database;
-import android.arch.persistence.room.DatabaseConfiguration;
-import android.arch.persistence.room.InvalidationTracker;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 import android.arch.persistence.room.migration.Migration;
@@ -13,16 +10,16 @@ import com.flagthelogic.testerra.database.converters.DateConverter;
 import com.flagthelogic.testerra.database.converters.OptionsConverter;
 import com.flagthelogic.testerra.database.dao.QuestionsDao;
 import com.flagthelogic.testerra.database.dao.TestsDao;
-import com.flagthelogic.testerra.database.entities.Questions;
-import com.flagthelogic.testerra.database.entities.Results;
-import com.flagthelogic.testerra.database.entities.Tests;
+import com.flagthelogic.testerra.database.entities.Question;
+import com.flagthelogic.testerra.database.entities.Result;
+import com.flagthelogic.testerra.database.entities.Test;
 
 /**
  * Created by Volodymyr Nahornyi on
  * device: dell
  * date: 18.10.17.
  */
-@Database(entities = {Tests.class, Questions.class, Results.class},
+@Database(entities = {Test.class, Question.class, Result.class},
           version = 5,
           exportSchema = false)
 @TypeConverters({OptionsConverter.class, DateConverter.class})

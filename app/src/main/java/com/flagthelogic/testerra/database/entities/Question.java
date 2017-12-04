@@ -11,7 +11,7 @@ import java.util.List;
 //https://stackoverflow.com/questions/44815784/room-persistent-database-how-to-insert-list-of-items-into-db-when-it-has-no-pr
 @Entity(tableName = "questions", primaryKeys = {"test_id", "question_id"})
 @TypeConverters({OptionsConverter.class})
-public class Questions {
+public class Question {
     @ColumnInfo(name = "test_id")
     public int tId;
     @ColumnInfo(name = "question_id")
@@ -92,7 +92,7 @@ public class Questions {
 
     @Override
     public String toString() {
-        return "Questions{" +
+        return "Question{" +
                 "tId=" + tId +
                 ", qId=" + qId +
                 ", question='" + question + '\'' +

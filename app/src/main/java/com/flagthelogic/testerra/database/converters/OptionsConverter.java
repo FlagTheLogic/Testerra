@@ -3,7 +3,7 @@ package com.flagthelogic.testerra.database.converters;
 import android.arch.persistence.room.TypeConverter;
 import android.util.Log;
 
-import com.flagthelogic.testerra.database.entities.Questions;
+import com.flagthelogic.testerra.database.entities.Question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +19,9 @@ public class OptionsConverter {
     private final static String OPTIONS_SEPARATOR = "|";
 
     @TypeConverter
-    public static List<Questions.Options> stringToOptions(String optionsString) {
+    public static List<Question.Options> stringToOptions(String optionsString) {
         Log.e(TAG, optionsString); // 1-t1|2-t2|3-t3
-        List<Questions.Options> options = new ArrayList<>();
+        List<Question.Options> options = new ArrayList<>();
         String[] opts = optionsString.split("\\|");// ["1-t1","1-t1"]
 //        for (String o: opts) {
 //            Log.e(TAG, o);
@@ -34,13 +34,13 @@ public class OptionsConverter {
             String[] pair = opts[i].split(ID_TITLE_SEPARATOR);
 
 //            Log.e(TAG, pair[0]+" "+pair[1] +" length: "+pair.length);
-            options.add(new Questions.Options(Integer.parseInt(pair[0]), pair[1]));
+            options.add(new Question.Options(Integer.parseInt(pair[0]), pair[1]));
         }
         return options;
     }
 
     @TypeConverter
-    public static String optionsToString(List<Questions.Options> options) {
+    public static String optionsToString(List<Question.Options> options) {
         String optionsString = "";
         for (int i = 0; i < options.size(); i++) {
             String pair = options.get(i).getId() + ID_TITLE_SEPARATOR + options.get(i).getTitle();

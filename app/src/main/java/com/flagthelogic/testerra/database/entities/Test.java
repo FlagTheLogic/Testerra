@@ -7,7 +7,7 @@ import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "tests",indices = {@Index(value = "id", unique = true)})
-public class Tests {
+public class Test {
     @PrimaryKey
     private int id = 0;
     @ColumnInfo(name = "title")
@@ -27,10 +27,10 @@ public class Tests {
     @ColumnInfo(name = "instruction")
     private String instruction;
 
-//    public Tests() {
+//    public Test() {
 //    }
 
-    public Tests(int id, String title, String author, String description, int testCompleted, int category, Params parameters, int logicType, String instruction) {
+    public Test(int id, String title, String author, String description, int testCompleted, int category, Params parameters, int logicType, String instruction) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -149,7 +149,7 @@ public class Tests {
 
     @Override
     public String toString() {
-        return "Tests{" +
+        return "Test{" +
                 "id=" + id +
                 ", title=\'" + title + '\'' +
                 ", author=\'" + author + '\'' +

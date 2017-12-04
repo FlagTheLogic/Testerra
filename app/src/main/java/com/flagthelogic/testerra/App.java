@@ -11,6 +11,7 @@ import com.flagthelogic.testerra.database.AppDatabase;
 
 public class App extends Application {
 
+    public static final int DEFAULT_TID = 1;
     private static final String TAG = "App";
     private static volatile AppDatabase db = null;
     private static Context mContext;

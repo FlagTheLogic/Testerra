@@ -4,7 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.flagthelogic.testerra.database.entities.Questions;
+import com.flagthelogic.testerra.database.entities.Question;
 
 import java.util.List;
 
@@ -16,11 +16,11 @@ import java.util.List;
 @Dao
 public interface QuestionsDao {
     @Query("SELECT * FROM questions WHERE test_id = :testId")
-    List<Questions> getQuestionsForTest(int testId);
+    List<Question> getQuestionsForTest(int testId);
 
     @Insert
-    void insertQuestion(Questions questions);
+    void insertQuestion(Question question);
 
     @Insert
-    void insertQuestions(Questions... questions);
+    void insertQuestions(Question... questions);
 }

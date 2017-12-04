@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.flagthelogic.testerra.R;
 
-public class TestMainActivity extends AppCompatActivity {
+public class TestResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_main);
+        setContentView(R.layout.activity_test_description);
     }
 }
